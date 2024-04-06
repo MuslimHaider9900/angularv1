@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;overflow: hidden; }
+.main-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container{
+    margin: 3rem;
+    height: 100%;
+}
+
+.primary{
+    background: #156082 !important;
+    color: white !important;
+}

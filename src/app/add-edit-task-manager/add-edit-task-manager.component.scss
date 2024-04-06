@@ -1,0 +1,20 @@
+.custom-form{
+    display: flex;
+    justify-content: center;
+}
+
+.w-70{
+    width: 70%;
+}
+.w-100{
+    width: 100%;
+}
+.custom-label{
+    font-weight: 500;
+}
+.footer-buttons{
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    width: 85%;
+}

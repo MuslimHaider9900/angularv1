@@ -1,0 +1,85 @@
+<div class="main-container">
+  <div class="main-header">
+    <h1> Task Manager </h1>
+  </div>
+  <div class="add-new-button">
+    <button class="primary" mat-flat-button (click)="navigateToAddEditTaskManager()">
+      <mat-icon class="material-icons-outlined">add</mat-icon>
+      New Task
+    </button>
+  </div>
+  <div class="table-list" *ngIf="tableData">
+    <table mat-table [dataSource]="dataSource" class="data-manager-custom-table">
+
+      <ng-container matColumnDef="task">
+        <th mat-header-cell *matHeaderCellDef >
+          Task # </th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.task}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef >
+          Priority </th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.priority}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef class="title">
+          Title </th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.title}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="assigned_to">
+        <th mat-header-cell *matHeaderCellDef >
+          Assigned To</th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.assigned_to}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef >
+          Status</th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.status}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="created_on">
+        <th mat-header-cell *matHeaderCellDef >
+          Created On</th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="action-button-column hoverArea">
+            {{element.created_on}}
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef >
+          Action</th>
+        <td mat-cell *matCellDef="let element index as i" [ngClass]="{ 'bg-custom' : i % 2 != 0}">
+          <div class="center">
+           <button mat-icon-button (click)="editItem(i)">
+            <mat-icon class="material-icons-outlined">edit</mat-icon>
+           </button>
+            <!-- <div>Edit</div> -->
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator [length]="tableData?.total" [pageSize]="tableData?.per_page" [pageSizeOptions]="[2,4,6]"></mat-paginator>
+</div>

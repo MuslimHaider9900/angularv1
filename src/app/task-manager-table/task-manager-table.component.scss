@@ -1,0 +1,30 @@
+.add-new-button {
+    display: flex;
+    justify-content: end;
+}
+
+:host ::ng-deep .mat-mdc-header-cell {
+    color: white !important;
+    border-right: 1px solid !important;
+    background-color: #156082 !important;
+}
+
+.table-list {
+    margin-top: 1rem;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.title {
+    width: 35% !important;
+}
+
+.bg-custom {
+    background-color: #e6e9ec !important;
+}
+
+.mat-mdc-cell {
+    background: #ccd2d8;
+    border-right: 1px solid white;
+}
+

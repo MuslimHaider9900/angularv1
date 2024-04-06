@@ -1,0 +1,59 @@
+<div class="main-container">
+
+  <div class="main-header">
+    <h1> Task </h1>
+  </div>
+  <div class="custom-form">
+    <form class="w-70" [formGroup]="addEditTaskForm">
+      <div class="w-100">
+        <mat-form-field class="w-100" >
+          <mat-label class="custom-label">Task Number</mat-label>
+          <input matInput formControlName="taskNumber" type="number">
+        </mat-form-field>
+      </div>
+      <div class="w-100">
+        <mat-form-field class="w-100" >
+          <mat-label class="custom-label">Description</mat-label>
+          <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="10" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="w-100">
+        <mat-form-field class="w-100">
+          <mat-label class="custom-label">Assigned to</mat-label>
+          <mat-select [multiple]="true" formControlName="assignedTo">
+            <mat-option value="Muslim">Muslim</mat-option>
+            <mat-option value="Zia">Zia</mat-option>
+            <mat-option value="Umer">Umer</mat-option>
+            <mat-option value="Haider">Haider</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="w-100">
+        <mat-form-field class="w-100">
+          <mat-label class="custom-label">Priority</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option value="Standard">Standard</mat-option>
+            <mat-option value="Important">Important</mat-option>
+            <mat-option value="Very Important">Very Important</mat-option>
+            <mat-option value="Critical">Critical</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+  <div class="footer-buttons">
+    <button class="primary" mat-flat-button (click)="cancel()">
+      <mat-icon class="material-icons-outlined" >close</mat-icon>
+      cancel
+    </button>
+    <button *ngIf="editId == undefined" class="primary" mat-flat-button (click)="save()">
+      <mat-icon class="material-icons-outlined">save</mat-icon>
+      Submit
+    </button>
+    <button *ngIf="editId != undefined" class="primary" mat-flat-button (click)="edit()">
+      <mat-icon class="material-icons-outlined">save</mat-icon>
+      Edit
+    </button>
+  </div>
+</div>
